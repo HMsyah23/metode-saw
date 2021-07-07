@@ -41,7 +41,9 @@
                                 <td>
                                     {{-- <button class="btn btn-sm btn-primary rounded-rounded" data-toggle="modal" data-target="#exampleModal-{{$user->id}}" data-backdrop="static"> <i class="fas fa-eye"></i></button> --}}
                                         <a href="{{route('user.show',$user->id ?? '')}}" class="btn btn-sm btn-warning rounded-rounded" data-toggle="tooltip" title="Edit Data" data-placement="bottom"> <i class="fas fa-edit"></i></a>
+                                        @if(Auth::user()->id != $user->id)
                                     <button class="btn btn-sm btn-danger rounded-rounded" data-toggle="modal" data-target="#deleteModal-{{$user->id}}" data-backdrop="static"> <i class="fas fa-trash"></i></button>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach

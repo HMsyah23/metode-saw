@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use PDF;
 use App\Kriteria;
-use App\Subkriteria;
+use App\SubKriteria;
 use App\Siswa;
 use App\RelasiTabel;
 use Illuminate\Http\Request;
@@ -12,7 +12,7 @@ use Illuminate\Http\Request;
 class LaporanController extends Controller
 {
     public function ganti_nilai($key) {
-        $item = Subkriteria::where('kode',$key)->first()->nilai;
+        $item = SubKriteria::where('kode',$key)->first()->nilai;
         return $item;
     }
 

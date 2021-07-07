@@ -6,9 +6,11 @@
     ])
 
 @section('tombol')
+@if(Auth::user()->role == 0)
     <a href="{{route('laporan.siswa',$siswa->id)}}" data-toggle="tooltip" title="Cetak Laporan" data-placement="bottom" class="btn-shadow mr-3 btn btn-dark">
         <i class="fa fa-print"> Cetak Laporan</i>
     </a>
+    @endif
     <a href="{{route('siswa.index')}}" type="button" class="btn-shadow mr-3 btn btn-primary">
         <i class="fa fa-arrow-left"> Kembali</i>
     </a>

@@ -6,10 +6,12 @@
     ])
 
 @section('tombol')
-    <a href="{{route('laporan.ranking')}}" class="btn-shadow mr-3 btn btn-dark">
-        <i class="fa fa-print"> Cetak Laporan</i>
-    </a>
-    <a href="{{route('ranking.saw')}}" class="btn-shadow mr-3 btn btn-primary">
+    @if(Auth::user()->role == 0)
+        <a href="{{route('laporan.ranking')}}" class="btn-shadow mr-3 btn btn-dark">
+            <i class="fa fa-print"> Cetak Laporan</i>
+        </a>
+    @endif
+    <a href="{{route('ranking.index')}}" class="btn-shadow mr-3 btn btn-primary">
         <i class="fa fa-arrow-left"> Ranking Siswa</i>
     </a>
 @endsection
@@ -477,7 +479,9 @@
                                             <th>Potensi Akademik</th>
                                             <th>Penghasilan Orang Tua</th>
                                             <th>Skor</th>
+                                            @if(Auth::user()->role == 0)
                                             <th>Cetak</th>
+                                            @endif
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -491,9 +495,11 @@
                                                 <td>{{$siswa['potensi'] ?? ''}}</td>
                                                 <td>Rp. {{$siswa['penghasilan'] ?? ''}}</td>
                                                 <td>{{$siswa['hasil'] ?? ''}}</td>
+                                                @if(Auth::user()->role == 0)
                                                 <td>
                                                     {{-- <button class="btn btn-sm btn-primary rounded-rounded" data-toggle="modal" data-target="#exampleModal-{{$siswa->id}}" data-backdrop="static"> <i class="fas fa-eye"></i></button> --}}
                                                         <a href="{{route('siswa.show',$siswa['id'])}}" class="btn btn-sm btn-warning rounded-rounded"> <i class="fas fa-print"></i></a>
+                                                        @endif
                                                     {{-- <button class="btn btn-sm btn-danger rounded-rounded" data-toggle="modal" data-target="#deleteModal-{{$siswa->id}}" data-backdrop="static"> <i class="fas fa-trash"></i></button> --}}
                                                 </td>
                                             </tr>

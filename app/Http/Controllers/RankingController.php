@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Kriteria;
-use App\Subkriteria;
+use App\SubKriteria;
 use App\Siswa;
 use App\RelasiTabel;
 use Illuminate\Http\Request;
@@ -98,7 +98,7 @@ class RankingController extends Controller
 
 
     public function ganti_nilai($key) {
-        $item = Subkriteria::where('kode',$key)->first()->nilai;
+        $item = SubKriteria::where('kode',$key)->first()->nilai;
         return $item;
     }
 
@@ -245,7 +245,7 @@ class RankingController extends Controller
         });
 
         $hasil = collect($hasil)->sortBy('hasil')->reverse();
-        $subkriterias = Subkriteria::all();
+        $subkriterias = SubKriteria::all();
         $kriterias = kriteria::all();
         return view('ranking.saw',compact('ranking2','data','normalisasi','normalisasi2','ranking','hasil','kriterias','subkriterias','siswas','kriterias'));
     }

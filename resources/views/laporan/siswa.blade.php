@@ -31,7 +31,7 @@
         text-align: center;
         float: right;
         color: black;
-      content: "Elektron Wadah Belajar SAMARINDA | Hal " counter(page);
+      content: "SD NEGERI 004 Sangatta Utara | Hal " counter(page);
     }
 
     .page-break {

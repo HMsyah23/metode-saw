@@ -189,12 +189,14 @@
                                         </li>
                                     </ul>
                                 </li>
+                                @if(Auth::user()->role == 0)
                                 <li  >
                                     <a href="{{route('user')}}" class="{{ Request::routeIs('user') ? 'mm-active' : '' }}">
                                         <i class="metismenu-icon pe-7s-user"></i>
                                         Data Pengguna
                                     </a>
                                 </li>
+                                @endif
                             </ul>
                         </div>
                     </div>
